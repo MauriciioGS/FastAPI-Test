@@ -72,5 +72,8 @@ def delete_tool(tool_id:int):
     if tool_to_delete is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, details = "Resource Not Found")
 
+    db.delete(tool_to_delete)
+    db.commit
+
     return tool_to_delete
 

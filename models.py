@@ -10,4 +10,4 @@ class Tool(Base):
     link = Column(Text, nullable=False)
 
 def __repr__(self):
-    return f"<Tool title={self.title} description={self.description} image={self.image} li:nk={self.link}>"
+    return f"<Tool title={self.title} description={self.description} image={self.image} link={self.link}>"
