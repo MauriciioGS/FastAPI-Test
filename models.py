@@ -59,7 +59,7 @@ class Material(Base):
 class Topic(Base):
   __tablename__='topics'
   id = Column(Integer, primary_key=True)
-  id_material = Column(Integer, nullable=False, unique=True)
+  id_material = Column(Integer, nullable=False)
   title = Column(Text, nullable=False)
   url_notes = Column(Text, nullable=False)
 
