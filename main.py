@@ -136,7 +136,7 @@ def get_an_material(material_id:int):
         status_code=status.HTTP_201_CREATED)
 def create_an_material(material:Material):
 
-    db_item = db.query(models.Material).filter(models.Material.title == material.title).first()
+    db_item = db.query(models.Material).filter(models.Material.name == material.name).first()
     if db_item is not None:
         raise HTTPException(status_code=400, details="Material already exists")
 
@@ -193,13 +193,13 @@ def get_an_course(course_id:int):
         status_code=status.HTTP_201_CREATED)
 def create_a_course(course:Course):
 
-    db_item = db.query(models.Course).filter(models.Course.title == Course.title).first()
+    db_item = db.query(models.Course).filter(models.Course.name == Course.name).first()
 
     if db_item is not None:
         raise HTTPException(status_code=400, details="Course already exists")
 
     new_course = models.Course(
-            title=course.title,
+            name=course.name,
             description = course.description,
             date = course.date,
             link = course.url_course
@@ -214,7 +214,7 @@ def create_a_course(course:Course):
         status_code=status.HTTP_200_OK)
 def update_an_course(course_id:int,course:Course):
     course_to_update = db.query(models.Course).filter(models.Course.id == course_id).first()
-    course_to_update.title = course.title
+    course_to_update.name = course.name
     course_to_update.description = course.description
     course_to_update.date = course.date
     course_to_update.url_course = course.url_course
