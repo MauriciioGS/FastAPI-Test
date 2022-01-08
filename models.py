@@ -33,7 +33,7 @@ class Course(Base):
 # Tabla Talleres ----------------------------------------------------------------------------------------------------------
 
 class Workshop(Base):
-  __tablename__='taller'
+  __tablename__='workshops'
   id = Column(Integer, primary_key=True)
   name = Column(Text, nullable=False)
   description = Column(Text, nullable=False)
