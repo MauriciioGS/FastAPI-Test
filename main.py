@@ -193,13 +193,13 @@ def get_an_course(course_id:int):
         status_code=status.HTTP_201_CREATED)
 def create_a_course(course:Course):
 
-    db_item = db.query(models.Course).filter(models.Course.name == Course.name).first()
+    db_item = db.query(models.Course).filter(models.Course.name == course.name).first()
 
     if db_item is not None:
         raise HTTPException(status_code=400, details="Course already exists")
 
     new_course = models.Course(
-            name=course.name,
+            name = course.name,
             description = course.description,
             date = course.date,
             link = course.url_course

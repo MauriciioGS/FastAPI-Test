@@ -20,7 +20,7 @@ class Tool(Base):
 # Tabla Cursos----------------------------------------------------------------------------------------------------------
 
 class Course(Base):
-  __tablename__='course'
+  __tablename__='courses'
   id = Column(Integer, primary_key=True)
   name = Column(Text, nullable=False)
   description = Column(Text, nullable=False)
