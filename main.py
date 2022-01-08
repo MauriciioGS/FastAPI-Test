@@ -223,15 +223,16 @@ def update_an_course(course_id:int,course:Course):
 
     return course_to_update
 
-@app.delete('/course/{course_id}', response_model=Tool,
+@app.delete('/course/{course_id}', response_model=Course,
         status_code=status.HTTP_200_OK)
 def delete_course(course_id:int):
     course_to_delete = db.query(models.Course).filter(models.Course.id == course_id).first()
-    db.delete(course_to_delete)
-    db.commit()
-
+    
     if course_to_delete is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, details = "Resource Not Found")
+    
+    db.delete(course_to_delete)
+    db.commit()
 
     return course_to_delete
 
